@@ -51,49 +51,29 @@ def output(password):
     print('Your Password is:', password)
 
 print("Password's Security Levels:")
-print('1:  4 numbers')
-print('2:  6 numbers')
-print('3:  8 numbers')
-print('4:  6 numbers + letters (only lower case)')
-print('5:  8 numbers + letters (only lower case)')
-print('6:  8 numbers + letters')
-print('7:  8 numbers + letters + special caracters')
-print('8:  10 numbers + letters + special caracters')
-print('9:  12 numbers + letters + special caracters')
-print('10: 16 numbers + letters + special caracters')
+print('1: numbers                                - weak')
+print('2: numbers and letters (only lower case)  - regular')
+print('3: numbers and letters                    - good')
+print('4: numbers, letters and special caracters - strong')
 
-secure = input('Enter the desired password security level (1 to 10): ')
+secure = input('Enter the desired password security level (1 to 4): ')
+
+lenght = input("How many caracters do you need? ")
+
+lenght = int(lenght) - 1
 
 if (secure == '1'):
-    weak(3)
+    weak(lenght)
 
 elif (secure == '2'):
-    weak(5)
+    regular(lenght)
         
 elif (secure == '3'):
-    weak(7)
+    good(lenght)
 
 elif (secure == '4'):
-    regular(5)
-        
-elif (secure == '5'):
-    regular(7)
-
-elif (secure == '6'):
-    good(7)
-        
-elif (secure == '7'):
-    strong(7)
-                
-elif (secure == '8'):
-    strong(9)
-                
-elif (secure == '9'):
-    strong(11)
-                
-elif (secure == '10'):
-    strong(15)
+    strong(lenght)
         
 else:
     print('-' * 60)
-    print('Invalid Option - Try Again!')
+    print('Invalid Security Level - Try Again!')
